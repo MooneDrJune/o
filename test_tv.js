@@ -12,7 +12,8 @@ function include(file) {
 }
 
 /* Include Many js files */
-include('https://raw.githubusercontent.com/MooneDrJune/o/dist/tv.min.js');
+include('tv.min.js');
+// include('https://raw.githubusercontent.com/MooneDrJune/o/dist/tv.min.js');
 // include('https://media.geeksforgeeks.org/wp-content/uploads/20190704162640/second.js');
 
 // const TradingView = require('@mathieuc/tradingview');
