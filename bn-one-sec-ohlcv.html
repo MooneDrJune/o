@@ -1,5 +1,65 @@
+
+<!DOCTYPE html>
+<!-- Please visit https://tradingview.github.io/lightweight-charts/tutorials/customization for more information on this tutorial. -->
 <html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0"
+    />
+    <title>Lightweight Charts Customization Tutorial</title>
+    <!-- Adding Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Adding the standalone version of Lightweight charts -->
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"
+    ></script>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        /* Add a background color to match the chart */
+        background-color: #222;
+      }
+
+      /* Styles for attribution message */
+      .lw-attribution {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        z-index: 3; /* place above the charts */
+        padding: 10px 0px 0px 12px;
+        font-family: "Roboto", sans-serif;
+        font-size: 0.8em;
+      }
+      .lw-attribution a {
+        cursor: pointer;
+        color: rgb(54, 116, 217);
+        opacity: 0.8;
+      }
+      .lw-attribution a:hover {
+        color: rgb(54, 116, 217);
+        opacity: 1;
+      }
+    </style>
+  </head>
+
   <body>
+    <div id="container" style="position: absolute; width: 100%; height: 100%">
+      <!-- Lightweight Charts Attribution Message and Link -->
+      <div class="lw-attribution">
+        <a href="https://tradingview.github.io/lightweight-charts/"
+          >Powered by Lightweight Charts</a
+        >
+      </div>
+    </div>
    <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script> 
    
    <div id="vis-df9f92c2b96f414c89be964cb8b3243a"></div>
@@ -19,7 +79,7 @@
       "visible": false
     }
   },
-  "height": 600,
+//   "height": 600,
   "layout": {
     "backgroundColor": "#222",
     "textColor": "#DDD"
@@ -34,7 +94,7 @@
     "secondsVisible": true,
     "timeVisible": true
   },
-  "width": 1500
+//   "width": 1500
 });
 
      
