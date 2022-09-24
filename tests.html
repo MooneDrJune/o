@@ -1,15 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <head>
-      <script src="https://cdn.jsdelivr.net/pyodide/v0.21.3/full/pyodide.js"></script>
-  </head>
-  <body>
-    <script type="text/javascript">
-      async function main(){
-        let pyodide = await loadPyodide();
-        console.log(pyodide.runPython("1 + 2"));
-      }
-      main();
-    </script>
-  </body>
+    <head>
+        <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+        <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+         <style>
+            h1 {
+                font-size: 20px; 
+                color: green; 
+                text-transform: uppercase;
+                text-align: center; 
+                margin: 0 0 35px 0; 
+                text-shadow: 0px 1px 0px #f2f2f2;
+            }
+        </style>
+    </head>
+    <body style='font-size: 20px;'>
+        <h1>PyScript - HTTP Requests pyfetch</h1>
+        <div id="request_output"></div>
+
+    <py-script>
+from pyodide.http import pyfetch
+import asyncio
+
+response = await pyfetch(url="https://jsonplaceholder.typicode.com/todos/1", method="GET")
+
+output = f"GET request=> status:{response.status}, json:{await response.json()}"
+
+pyscript.write('request_output', output)
+    </py-script>
+    </body>
 </html>
