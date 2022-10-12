@@ -28,7 +28,7 @@ const display = async (data, ol) => {
     olNew.append(li);
     return;
   }
-  const readWSS = new WebSocketStream(`${READ_URL}`);  
+  const readWSS = new WebSocketStream('ws://127.0.0.1:9000');  
   const {readable} = await readWSS.connection;      
   const reader = readable.getReader();
   // When `readWSS` closes, also close `writeWSS`
