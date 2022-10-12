@@ -16,11 +16,9 @@
     <script src="/script.js" defer></script>
   </head>
   <body>
-    <h1>Wikipedia Edits</h1>    
+    <h1>KITECONNECT TICKERS STREAM</h1>    
     <p>
-      This demo reads from a WebSocket stream of
-      <a href="https://en.wikipedia.org/wiki/Help:Recent_changes">Wikipedia Recent Changes</a>
-      and, after a <em>fake processing step that takes one second</em>, echos the result back to another WebSocket server.
+      This demo reads from a WebSocket stream of stock tickers.
     </p>
     <p>
       Open the DevTools of your browser to see the in- and outgoing WebSocket traffic.
@@ -30,20 +28,12 @@
     
     <h2>WebSocketStream</h2>
     <p>
-      This part of the demo <em>reads</em> from a <code>WebSocketStream</code> of recent Wikipedia changes
-      and <em>writes</em> each message back to a different echo <code>WebSocketStream</code>.      
-    </p>
-    <p>
-      ✅ Backpressure is applied to both read and write operations.
+      ✅ Backpressure is applied to read operations.
       The next message is only read once the pipeline is ready.
     </p>
     <ol class="new" reverse></ol>
     
     <h2>WebSocket</h2>
-    <p>
-      This part of the demo <em>reads</em> from a regular <code>WebSocket</code> of recent Wikipedia changes
-      and <em>writes</em> each message back to a different echo <code>WebSocket</code>.
-    </p>
     <p>
       ❌ No backpressure is applied. In the worst case, the render process will either fill up memory
       by buffering those messages, become unresponsive due to 100% CPU usage, or both.
