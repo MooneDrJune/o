@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    table {
+        width: 100%;
+        height: 100%;
+        border-collapse: collapse;
+    }
+
+    td {
+        border: 1px solid black;
+        padding: 0.5em;
+    }
+    </style>
+</head>
+
+<body>
+    <table id="stream-table">
+        <thead>
+            <tr>
+                <th>Stock Symbol</th>
+                <th>Price</th>
+                <th>Change</th>
+            </tr>
+        </thead>
+        <tbody id="stream-table-body"></tbody>
+    </table>
+    <script>
+    const ws = new WebSocket('ws://localhost:8080/');
+
+    // Create a new row in the table for the quote
+    const row = document.createElement('tr');
+
+    // Create cells for the stock symbol, price, and change
+    const symbolCell = document.createElement('td');
+    symbolCell.textContent = "symbol";
+    row.appendChild(symbolCell);
+
+    const priceCell = document.createElement('td');
+    priceCell.textContent = 0.0;
+    row.appendChild(priceCell);
+
+    const changeCell = document.createElement('td');
+    changeCell.textContent = 0.0;
+    row.appendChild(changeCell);
+
+    // Add the new row to the table body
+    document.getElementById('stream-table-body')
+        .appendChild(row);
+    // Handle incoming messages from the websocket
+    ws.onmessage = function (event) {
+
+        // Parse the data from the stream into a stock quote object
+        const quote = JSON.parse(event.data);
+
+        symbolCell.textContent = quote.symbol;
+        priceCell.textContent = quote.price;
+        changeCell.textContent = quote.change;
+
+    }
+    </script>
+</body>
+
+</html>
